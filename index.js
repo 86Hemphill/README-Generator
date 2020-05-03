@@ -24,7 +24,7 @@ async function init() {
         name: "title",
       },
       {
-        type: "input",
+        type: "editor",
         message: "Enter a description for your repo",
         name: "description",
       },
@@ -39,13 +39,22 @@ async function init() {
         name: "usage",
       },
       {
-        type: "input",
-        message: "Please enter your license information (optional)",
+        type: "rawlist",
         name: "license",
-      },
+        default: "MIT license",
+        choices: ['Apache License 2.0',
+          'BSD 3-Clause "New" or "Revised" license',
+          'BSD 2-Clause "Simplified" or "FreeBSD" license',
+          'GNU General Public License (GPL)',
+          'GNU Library or "Lesser" General Public License (LGPL)',
+          'MIT license',
+          'Mozilla Public License 2.0',
+          'Common Development and Distribution License',
+          'Eclipse Public License version 2.0]'
+        ]},
       {
         type: "input",
-        message: "Please enter contributor info (optional)",
+        message: "Please enter contributing info (optional)",
         name: "contributing",
       },
     ]);
