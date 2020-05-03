@@ -14,6 +14,9 @@ function generateMarkdown(data) {
 
 ### ${data.license}
 
+<img alt="GitHub Profile Pic" src="${data.profilePic}">
+
+### ${data.email || ""}
 `;
 }
 

@@ -49,12 +49,13 @@ async function init() {
         name: "contributing",
       },
     ]);
-    const githubData = await api.getUser(questions.username);
-    console.log(githubData);
-    // questions.email = githubData.email;
+
+    const userInfo = await api.getUser(questions.username);
+    questions.email = userInfo.email;
+    questions.profilePic = userInfo.avatar_url;
     const answers = generateMarkdown(questions);
     fs.writeFile(filename, answers, function () {
-      console.log("Success!");
+      console.log("Successfully generated README.md file!");
     });
   } catch (err) {
     console.log(err);
