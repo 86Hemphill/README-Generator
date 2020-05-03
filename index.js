@@ -1,8 +1,10 @@
 const api = require("./utils/api.js");
-const axios = require("axios");
 const inquirer = require("inquirer");
+const fuzzy = require("inquirer-fuzzy-path");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
+inquirer.registerPrompt('fuzzypath', require('inquirer-fuzzy-path'))
+
 
 async function init() {
   try {
@@ -57,6 +59,17 @@ async function init() {
         message: "Please enter contributing info (optional)",
         name: "contributing",
       },
+      // {
+      //   type: 'fuzzypath',
+      //   name: 'path',
+      //   excludePath: nodePath => nodePath.startsWith('node_modules'),
+      //   excludeFilter: nodePath => nodePath.startsWith('.'),
+      //   itemType: 'directory',
+      //   message: 'Select a target directory for your README',
+      //   default: '/Desktop',
+      //   suggestOnly: false,
+      //   depthLimit: 5,
+      // },
     ]);
 
     const userInfo = await api.getUser(questions.username);
