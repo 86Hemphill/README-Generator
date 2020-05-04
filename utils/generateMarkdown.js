@@ -4,19 +4,23 @@ function generateMarkdown(data) {
 
 # ${data.title}
 
-## ${data.description}
+## Description
+${data.description}
 
-### ${data.installation}
+### Installation
+${data.installation}
 
-### ${data.usage}
+### Usage
+${data.usage}
 
-### ${data.contributing}
-
-### ${data.license}
+### Contributing
+${data.contributing}
 
 <img alt="GitHub Profile Pic" src="${data.profilePic}">
 
 ### ${data.email || ""}
+
+### ${data.license}
 `;
 }
 

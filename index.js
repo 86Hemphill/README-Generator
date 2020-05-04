@@ -59,19 +59,20 @@ async function init() {
         message: "Please enter contributing info (optional)",
         name: "contributing",
       },
-      // {
-      //   type: 'fuzzypath',
-      //   name: 'path',
-      //   excludePath: nodePath => nodePath.startsWith('node_modules'),
-      //   excludeFilter: nodePath => nodePath.startsWith('.'),
-      //   itemType: 'directory',
-      //   message: 'Select a target directory for your README',
-      //   default: '/Desktop',
-      //   suggestOnly: false,
-      //   depthLimit: 5,
-      // },
+      {
+        type: 'fuzzypath',
+        name: 'path',
+        excludePath: nodePath => nodePath.startsWith('node_modules'),
+        excludeFilter: nodePath => nodePath.startsWith('.'),
+        itemType: 'directory',
+        // rootPath: '',
+        message: 'Select a target directory for your README',
+        default: '/Desktop',
+        suggestOnly: false,
+        depthLimit: 5,
+      },
     ]);
-
+    console.log(questions);
     const userInfo = await api.getUser(questions.username);
     questions.email = userInfo.email;
     questions.profilePic = userInfo.avatar_url;
